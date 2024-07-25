@@ -14,6 +14,8 @@ The result is:
 
 3. The stdout for the asset will contain any information logged from the typescript sub-process.
 
+![](./typescript_3.png)
+
 
 Other pipes clients could be used, eg the Kubernetes pipes client could be used to invoke a Docker image that contains the typescript code. 
 
