@@ -77,7 +77,17 @@ async function main() {
   const totalCount = pipesContext.extras["total_count"];
   await runCountdown(totalCount);
 
-  setPipesMessages({ method: "log", params: { message: "Yay!" } });
+  // HIGHLIGHT 4: report asset materialization with metadata to dagster
+  setPipesMessages({
+    method: "report_asset_materialization",
+    params: {
+      asset_key: asset_key,
+      data_version: null,
+      metadata: {
+        total_count: { raw_value: totalCount, type: "int" },
+      },
+    },
+  });
 }
 
 main();
